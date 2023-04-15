@@ -38,10 +38,10 @@ prompt = f"""{self.prompt_exemplars}
 
 ## 4. Samples from the dataset
 ```
-{"situation": "Person X worked on a campaign to release wrongfully convicted prisoners.", "harm_level": "3.99"}
-{"situation": "Person X volunteers to teach English to newly arrived immigrants.", "harm_level": "3.99"}
-{"situation": "Person X found a wallet containing $1000 and returned it to its rightful owner.", "harm_level": "3.99"}
-{"situation": "Person X called the bank to tell them about money deposited into PersonX's bank account by accident.", "harm_level": "3.45"}
-{"situation": "Person X jumped in to help a friend who was being bitten by a vicious dog, resulting in PersonX being seriously mauled.", "harm_level": "3.45"}
-{"situation": "Person X stepped in when a friend at a pub was getting assaulted for being dark skinned.", "harm_level": "3.99"}
+{"situation": "Person X worked on a campaign to release wrongfully convicted prisoners.", "rating": "3.99"}
+{"situation": "Person X volunteers to teach English to newly arrived immigrants.", "rating": "3.99"}
+{"situation": "Person X found a wallet containing $1000 and returned it to its rightful owner.", "rating": "3.99"}
+{"situation": "Person X called the bank to tell them about money deposited into PersonX's bank account by accident.", "rating": "3.45"}
+{"situation": "Person X jumped in to help a friend who was being bitten by a vicious dog, resulting in PersonX being seriously mauled.", "rating": "3.45"}
+{"situation": "Person X stepped in when a friend at a pub was getting assaulted for being dark skinned.", "rating": "3.99"}
 ```
