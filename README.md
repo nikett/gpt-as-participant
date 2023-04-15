@@ -7,7 +7,7 @@ including moral judgments across scenario sets. We explore whether and when lang
 might replace human participants in psychological science. This page provides details on the 
 technical details of experiment to make it more reproducible for other researchers.
 
-[to-do: add image]
+![GPT makes human-like judgments](https://raw.githubusercontent.com/nikett/gpt-as-participant/main/human-ratings-vs-gpt.png)
 
 ## 2. Prompts used
 ```
