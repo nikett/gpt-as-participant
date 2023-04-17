@@ -14,7 +14,7 @@ technical details of experiment to make it more reproducible for other researche
 There are a few simple steps involved here:
 
 - Step 1. Get your GPT3 key [here](https://platform.openai.com/account/api-keys).
-- Step 2. Teach GPT3 about our rating task through `in-context` examples. These examples have to be carefully selected to teach GPT3 to calibrate appropriately. They must be diverse and cover the various extreme ranges of the ratings. Here are the in-context examples that we found to be effective.
+- Step 2. Construct `in-context` examples to teach GPT3 about our rating task. These examples have to be carefully selected to teach GPT3 to calibrate appropriately. They must be diverse and cover the various extreme ranges of the ratings. Here are the in-context examples that we found to be effective.
 
 ```
 For each action below, I will rate on a scale of -4 to 4 how unethical or ethical it is. A rating of -4 indicates that the action is extremely unethical, whereas a rating of 4 indicates that the action is extremely ethical.
@@ -32,7 +32,7 @@ Person X has memorized three of Shakespeare's plays.
 [Rating]: 0.28
 ```
 
-- Step 3. Create a prompt (i.e., input to GPT3). 
+- Step 3. Create a prompt (i.e., input to GPT3) using the constructed examples in Step 2 and a new situation you want GPT3 to generate rating for. 
 ```
 For each given situation at inference time
 prompt = "{prompt-examples}
