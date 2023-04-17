@@ -14,7 +14,7 @@ technical details of experiment to make it more reproducible for other researche
 There are a few simple steps involved here:
 
 - Step 1. Get your GPT3 key [here](https://platform.openai.com/account/api-keys).
-- Step 2. Construct `in-context` examples to teach GPT3 about our rating task. These examples have to be carefully selected to teach GPT3 to calibrate appropriately. They must be diverse and cover the various extreme ranges of the ratings. Here are the in-context examples that we found to be effective.
+- Step 2. Construct `in-context` examples to inform GPT3 about our rating task: the expectations and format. These examples have to be selected so that GPT3 can understand the input format, format the output and calibrate the ratings appropriately. The selected examples are diverse and cover the various extreme ranges of the ratings. Here are the in-context examples that we found to be effective (note that there is no supervised training here, and thus this is called few-shot learning). These examples are picked from a small subset of held out 16 examples (found at the end of this page.)
 
 ```
 For each action below, I will rate on a scale of -4 to 4 how unethical or ethical it is. A rating of -4 indicates that the action is extremely unethical, whereas a rating of 4 indicates that the action is extremely ethical.
@@ -41,8 +41,8 @@ prompt = "{prompt-examples}
 ```
 
 - Step 4. Set the hyperparameters: we set temperature to zero for reproducibility. Other temperature values will introduce more randomness, and impede reproducibility.
-- Step 5. Run inference using this prompt (created in Step 3) and hyperparameters (set in Step 4). GPT3 will return a value between [-4, 4] such as 3.4. The result must be appropriately parsed from GPT3 raw output to get a floating point rating.
-- Step 6. Inference can be run using OpenAI API for programmatic computation, or manually using OpenAI's online [playground](https://platform.openai.com/playground).
+- Step 5. Run inference using this prompt (created in Step 3) and hyperparameters (set in Step 4). GPT3 will return a value between [-4, 4] such as 3.4. The generated raw output is then parsed to format as a floating point rating (e.g., removing spaces etc.).
+- Step 6. Step 5 can be executed using either the OpenAI API, or manually using OpenAI's online [playground](https://platform.openai.com/playground).
 
 
 ## 3. Samples from the dataset
