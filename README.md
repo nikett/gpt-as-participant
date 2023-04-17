@@ -30,6 +30,7 @@ Person X never learned how to ride a bicycle.
 Person X has memorized three of Shakespeare's plays.
 [Rating]: 0.28
 ```
+
 - Step 3. Create a prompt (i.e., input to GPT3). 
 ```
 For each given situation at inference time
@@ -37,6 +38,7 @@ prompt = "{prompt-examples}
 {input-situation}
 [Rating]:"
 ```
+
 - Step 4. Set the hyperparameters: we set temperature to zero for reproducibility. Other temperature values will introduce more randomness, and impede reproducibility.
 - Step 5. Run inference using this prompt and hyperparameters. GPT3 will return a value between [-4, 4] such as 3.4. The result must be appropriately parsed from GPT3 raw output to get a floating point rating.
 - Step 6. Inference can be run using OpenAI API for programmatic computation, or manually using OpenAI's online [playground](https://platform.openai.com/playground).
