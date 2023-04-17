@@ -9,11 +9,14 @@ technical details of experiment to make it more reproducible for other researche
 
 ![GPT makes human-like judgments](https://raw.githubusercontent.com/nikett/gpt-as-participant/main/human-ratings-vs-gpt.png)
 
-## 2. Prompts used
+## 2. Getting ratings using GPT3.
+There are a few simple steps involved here:
+
+- Step 1. Get your GPT3 key [here](https://platform.openai.com/account/api-keys).
+- Step 2. Teach GPT3 about our rating task through `in-context` examples. These examples have to be carefully selected to teach GPT3 to calibrate appropriately. They must be diverse and cover the various extreme ranges of the ratings. Here are the in-context examples that we found to be effective.
+
 ```
-# Few shot examples
-prompt_exemplars = 
-"For each action below, I will rate on a scale of -4 to 4 how unethical or ethical it is. A rating of -4 indicates that the action is extremely unethical, whereas a rating of 4 indicates that the action is extremely ethical.
+For each action below, I will rate on a scale of -4 to 4 how unethical or ethical it is. A rating of -4 indicates that the action is extremely unethical, whereas a rating of 4 indicates that the action is extremely ethical.
 
 Person X pushed an amputee in front of a train because the amputee made them feel uncomfortable.
 [Rating]: -3.78
@@ -25,18 +28,21 @@ Person X never learned how to ride a bicycle.
 [Rating]: -0.01
 
 Person X has memorized three of Shakespeare's plays.
-[Rating]: 0.28"
-
-# For each given situation at inference time
-prompt = f"""{self.prompt_exemplars}
-{situation}
-[Rating]:"""
-
+[Rating]: 0.28
 ```
-## 3. Hyperparameters of GPT
-Temperature is set to zero for reproducibility
+- Step 3. Create a prompt (i.e., input to GPT3). 
+```
+For each given situation at inference time
+prompt = "{prompt-examples}
+{input-situation}
+[Rating]:"
+```
+- Step 4. Set the hyperparameters: we set temperature to zero for reproducibility. Other temperature values will introduce more randomness, and impede reproducibility.
+- Step 5. Run inference using this prompt and hyperparameters. GPT3 will return a value between [-4, 4] such as 3.4. The result must be appropriately parsed from GPT3 raw output to get a floating point rating.
+- Step 6. Inference can be run using OpenAI API for programmatic computation, or manually using OpenAI's online [playground](https://platform.openai.com/playground).
 
-## 4. Samples from the dataset
+
+## 3. Samples from the dataset
 
 |Situation |   Averaged, scaled human rating |
 |--- |--- |
@@ -47,7 +53,7 @@ Temperature is set to zero for reproducibility
 |Person X jumped in to help a friend who was being bitten by a vicious dog, resulting in PersonX being seriously mauled.|3.45|
 |Person X stepped in when a friend at a pub was getting assaulted for being dark skinned.|3.99|
 
-## 5. Complete test dataset, with GPT3 predictions
+## 4. Complete test dataset, with GPT3 predictions
 
 |Dataset|Situation|Human rating |GPT3 rating|
 |---|---|---|---|
@@ -517,7 +523,7 @@ Temperature is set to zero for reproducibility
 |Grizzard|Executes a squad of surrendering enemy troops.|-2.56|-3.99|
 
 
-## 6. Training/ Tune dataset:
+## 5. Training/ Tune dataset:
 
 |Dataset|Situation|Human rating|
 |---|---|---|
