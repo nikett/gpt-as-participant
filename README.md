@@ -7,7 +7,7 @@ including moral judgments across scenario sets. We explore whether and when lang
 might replace human participants in psychological science. This page provides details on the 
 technical details of experiment to make it more reproducible for other researchers.
 
-<img src="https://raw.githubusercontent.com/nikett/gpt-as-participant/main/figure-v2.png" width=40% height=40%>
+<img src="https://raw.githubusercontent.com/nikett/gpt-as-participant/main/figure-v2.png" width="40%" height="40%">
 <!-- ![GPT makes human-like judgments](https://raw.githubusercontent.com/nikett/gpt-as-participant/main/figure-v2.png) -->
 
 ## 2. Getting ratings using GPT3.
@@ -524,7 +524,7 @@ Person X has memorized three of Shakespeare's plays.
 |Grizzard|Executes a squad of surrendering enemy troops.|-2.56|-3.99|
 
 
-## 5. Training/ Tune dataset:
+## 5. Tuning dataset for in-context examples (different from the test set):
 
 |Dataset|Situation|Human rating|
 |---|---|---|
