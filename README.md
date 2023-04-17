@@ -41,7 +41,7 @@ prompt = "{prompt-examples}
 ```
 
 - Step 4. Set the hyperparameters: we set temperature to zero for reproducibility. Other temperature values will introduce more randomness, and impede reproducibility.
-- Step 5. Run inference using this prompt and hyperparameters. GPT3 will return a value between [-4, 4] such as 3.4. The result must be appropriately parsed from GPT3 raw output to get a floating point rating.
+- Step 5. Run inference using this prompt (created in Step 3) and hyperparameters (set in Step 4). GPT3 will return a value between [-4, 4] such as 3.4. The result must be appropriately parsed from GPT3 raw output to get a floating point rating.
 - Step 6. Inference can be run using OpenAI API for programmatic computation, or manually using OpenAI's online [playground](https://platform.openai.com/playground).
 
 
