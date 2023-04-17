@@ -7,7 +7,8 @@ including moral judgments across scenario sets. We explore whether and when lang
 might replace human participants in psychological science. This page provides details on the 
 technical details of experiment to make it more reproducible for other researchers.
 
-![GPT makes human-like judgments](https://raw.githubusercontent.com/nikett/gpt-as-participant/main/human-ratings-vs-gpt.png)
+<img src="https://raw.githubusercontent.com/nikett/gpt-as-participant/main/figure-v2.png" width=40% height=40%>
+<!-- ![GPT makes human-like judgments](https://raw.githubusercontent.com/nikett/gpt-as-participant/main/figure-v2.png) -->
 
 ## 2. Getting ratings using GPT3.
 There are a few simple steps involved here:
@@ -211,18 +212,18 @@ prompt = "{prompt-examples}
 |Cook|Someone disposes of a small bag of garbage by throwing it into a nearby forest|-2.54|-2.45|
 |Cook|Someone makes an obscene gesture in a cemetery for military veterans|-2.42|-3.45|
 |Cook|Someone yells at a server at a restaurant because their meal is late|-2.35|-3.45|
-|Cook|Someone posts online about a private conversation they overheard containing what they consider ofensive humor, including a picture of those involved in the conversation|-2.31|-2.45|
+|Cook|Someone posts online about a private conversation they overheard containing what they consider ofensive humor, including a picture of those involved in the conversation|-2.31|-2.45|
 |Cook|Someone makes a joke about how members of a specifc religious group are dumb|-2.09|-3.45|
-|Cook|Someone participates in a non-violent white nationalist rally|-1.86|-2.45|
+|Cook|Someone participates in a non-violent white nationalist rally|-1.86|-2.45|
 |Cook|Someone makes a post on Facebook about how worthless teachers are|-1.85|-2.45|
 |Cook|Someone who is a United States citizen burns an American fag at a protest|-1.73|-3.45|
 |Cook|Someone states that biological diferences between men and women make men better suited to do certain types of work and women better suited to do other types of work|-1.71|-3.45|
 |Cook|Someone makes a post on Twitter making fun of police ofcers|-1.59|-2.45|
-|Cook|Someone posts pornographic self-photography online|-1.25|-3.99|
+|Cook|Someone posts pornographic self-photography online|-1.25|-3.99|
 |Cook|Someone posts on social media bragging about making out with multiple strangers the night before|-1.22|-2.45|
 |Cook|Someone brags on social media about drinking excessively to the point of vomiting|-1.19|-3.45|
 |Cook|Someone refuses to stand for the pledge of allegiance at a public event|-1.13|0.45|
-|Cook|Someone makes a public online post making fun of their political party, saying they will support the opposing partyâ€™s candidate|-0.74|-2.45|
+|Cook|Someone makes a public online post making fun of their political party, saying they will support the opposing party's candidate|-0.74|-2.45|
 |Clifford|You see a teenage boy chuckling at an amputee he passes by while on the subway.|-3.4|-2.45|
 |Clifford|You see a girl laughing at another student forgetting her lines at a school play.|-2.4|-2.45|
 |Clifford|You see a woman commenting out loud about how fat another woman looks in her jeans.|-3|-3.45|
