@@ -60,7 +60,7 @@ In summary, the prompt we constructed takes up this form:
 ## 3. FAQ: Were the input sequences seen in training data of GPT?
 Answer: Our analysis suggests that they are not seen for the following three reasons:
 
-1. A good estimate is by prompting the model with an initial sequence of the input situation and asking it to autocomplete the situation. If it matches the original data, then there is a chance that there is leakage. We show illustrative examples on how the completion and original situation in fact look very different:
+- A good estimate is by prompting the model with an initial sequence of the input situation and asking it to autocomplete the situation. If it matches the original data, then there is a chance that there is leakage. We show illustrative examples on how the completion and original situation in fact look very different:
 
 |Prompt|GPT completion| Actual completion in the dataset|
 |---|---|---|
@@ -71,9 +71,9 @@ Answer: Our analysis suggests that they are not seen for the following three rea
 |Person X commutes four hours on a bus every week to the local children’s hospital, so	|that they can volunteer with the young patients.|	they can dress as a clown and entertain the children in the cancer ward.|
 
 
-2. There were only ~10 examples used as exemplars, and tested on ~465 examples. The chance of those 10 examples representing the remaining 465 examples is negligible, as the datasets are quite rich and diverse. (see the complet dataset below)
+- There were only ~10 examples used as exemplars, and tested on ~465 examples. The chance of those 10 examples representing the remaining 465 examples is negligible, as the datasets are quite rich and diverse. (see the complet dataset below)
 
-3. Further, the answers (in the form of ratings from -4 to 4) were likely never present anywhere in this present form on the internet. We averaged and normalized scores from original datasets to -4, 4 scale and this is close to impossible to find elsewhere in this format.
+- Further, the answers (in the form of ratings from -4 to 4) were likely never present anywhere in this present form on the internet. We averaged and normalized scores from original datasets to -4, 4 scale and this is close to impossible to find elsewhere in this format.
 
 
 ## 4. Complete test dataset, with GPT3 predictions
