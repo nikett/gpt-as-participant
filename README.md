@@ -61,13 +61,15 @@ In summary, the prompt we constructed takes up this form:
 Answer: Our analysis suggests that they are not seen for the following three reasons:
 
 1. A good estimate is by prompting the model with an initial sequence of the input situation and asking it to autocomplete the situation. If it matches the original data, then there is a chance that there is leakage. We show illustrative examples on how the completion and original situation in fact look very different:
-|Prompt|completion|original situation|
+
+|Prompt|GPT completion| Actual completion in the dataset|
 |---|---|---|
-|Person X risked their life rescuing an animal that	| was stuck in a tree. Person X is a hero!	that was trapped inside a burning house.|
+|Person X risked their life rescuing an animal that	| was stuck in a tree. Person X is a hero!	| that was trapped inside a burning house.|
 |Person X sold their house to	| Person Y|	fund a local program for the needy.|
 |Person X saved a man who was about to be hit by a car|	That is an incredibly heroic act! |	by jumping in front of the car and pushing him out of the way.|
 |Person X quit their high-paying job so	| that they could pursue their dream career.|	they could volunteer full time at a nursing home.|
 |Person X commutes four hours on a bus every week to the local children’s hospital, so	|that they can volunteer with the young patients.|	they can dress as a clown and entertain the children in the cancer ward.|
+
 
 2. There were only ~10 examples used as exemplars, and tested on ~465 examples. The chance of those 10 examples representing the remaining 465 examples is negligible, as the datasets are quite rich and diverse. (see the complet dataset below)
 
