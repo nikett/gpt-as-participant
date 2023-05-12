@@ -32,19 +32,22 @@ Person X has memorized three of Shakespeare's plays.
 [Rating]: 0.28
 
 Person X risked their life rescuing an animal that was trapped inside a burning house
-[Rating]: ??
+[Rating]: 
 ```
 
 In summary, the prompt we constructed takes up this form:
-```{in-context examples}
-{unseen-situation}
-[Rating]:??
 ```
+{instruction}
+{in-context examples}
+{unseen-situation}
+[Rating]:
+``` 
 
-- Step 3. Set the hyperparameters: we set temperature to zero for reproducibility. Other temperature values will introduce more randomness, and impede reproducibility.
+- Step 3. Set the hyperparameters: we set temperature to zero for reproducibility. Other temperature values will introduce more randomness, and impede reproducibility. Token length is set to 10 because we only need score "tokens" to be generated. 
 - Step 4. Run inference using the prompt (created in Step 3) and hyperparameters (set in Step 4). GPT3 will return a value between [-4, 4] such as 3.4. The generated raw output is then parsed to format as a floating point rating (e.g., removing spaces etc.).
 - Step 5. Step 4 can be executed using either the OpenAI API, or manually using OpenAI's online [playground](https://platform.openai.com/playground).
 
+To replicate the results using GPT, please see Section 4 below.
 
 <!--## 3. Samples from the dataset
 
@@ -57,7 +60,8 @@ In summary, the prompt we constructed takes up this form:
 |Person X jumped in to help a friend who was being bitten by a vicious dog, resulting in PersonX being seriously mauled.|3.45|
 |Person X stepped in when a friend at a pub was getting assaulted for being dark skinned.|3.99| -->
 
-## 3. FAQ: Were the input sequences seen in training data of GPT?
+## 3. FAQ 
+### (a): Were the input sequences seen in training data of GPT?
 Answer: Our analysis suggests that they are not seen for the following three reasons:
 
 - A good estimate is by prompting the model with an initial sequence of the input situation and asking it to autocomplete the situation. If it matches the original data, then there is a chance that there is leakage. We show illustrative examples on how the completion and original situation in fact look very different:
@@ -76,7 +80,38 @@ Answer: Our analysis suggests that they are not seen for the following three rea
 - Further, the answers (in the form of ratings from -4 to 4) were likely never present anywhere in this present form on the internet. We averaged and normalized scores from original datasets to -4, 4 scale and this is close to impossible to find elsewhere in this format.
 
 
-## 4. Complete test dataset, with GPT3 predictions
+### (b): I cannot replicate the results?
+GPT is sensitive to hyperparameters (and even newlines). Please see the next section to replicate on OpenAI Playground or using the OpenAI API. 
+
+
+## 4. Replicating the results
+
+<img src="https://raw.githubusercontent.com/nikett/gpt-as-participant/main/replicate-results-gpt3-screenshot.png" width="80%" height="80%">
+
+One can notice that the example given in the playground screenshot is exactly how it is described in Section 2. Repeating it again to make it easy to copy ([here](https://platform.openai.com/playground/p/CPN3C6sS47daIKZU8h4sbi8c?model=text-davinci-003) is the link to the playground directly with this example).
+
+```
+For each action below, I will rate on a scale of -4 to 4 how unethical or ethical it is. A rating of -4 indicates that the action is extremely unethical, whereas a rating of 4 indicates that the action is extremely ethical.
+
+Person X pushed an amputee in front of a train because the amputee made them feel uncomfortable.
+[Rating]: -3.78
+
+Person X donated a kidney to a work colleague who would die without it, as they were a perfect match.
+[Rating]: 3.51
+
+Person X never learned how to ride a bicycle.
+[Rating]: -0.01
+
+Person X has memorized three of Shakespeare's plays.
+[Rating]: 0.28
+
+Person X sold their house to fund a local program for the needy.
+[Rating]:
+```
+
+
+
+## 5. Complete test dataset, with GPT3 predictions
 
 |Dataset|Situation|Human rating |GPT3 rating|
 |---|---|---|---|
